@@ -1,0 +1,50 @@
+app:
+  name: local-cad-agent
+  mode: development
+  log_level: INFO
+  workspace_dir: workspace
+  output_dir: outputs
+  cache_dir: cache
+
+models:
+  provider: local
+  preferred_llm: qwen3-coder:30b
+  fallback_llm: qwen2.5-coder:7b
+  vision_model: qwen3-vl:8b
+  embedding_model: local
+
+geometry:
+  unit: mm
+  angle_snap_degrees: [0, 45, 90, 135, 180, 225, 270, 315]
+  angle_tolerance_degrees: 2.5
+  line_merge_tolerance_mm: 20
+  wall_parallel_tolerance_degrees: 2.0
+  corner_join_tolerance_mm: 30
+  min_wall_length_mm: 150
+  default_wall_thickness_mm: 100
+
+input:
+  accepted_types:
+    - pdf
+    - png
+    - jpg
+    - jpeg
+    - dxf
+    - json
+  keep_raw_inputs: true
+  save_intermediate_artifacts: true
+
+outputs:
+  write_debug_json: true
+  write_preview_svg: true
+  write_report_md: true
+  future_exports:
+    - dxf
+    - skp
+    - ifc
+    - blender
+    - d5_scene_notes
+
+safety:
+  require_user_review_before_export: true
+  destructive_file_operations: false
