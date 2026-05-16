@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+ENV/
+.env
+.env.*
+
+# Build outputs
+build/
+dist/
+*.egg-info/
+
+# Logs and runtime data
+logs/
+*.log
+*.jsonl
+runs/
+outputs/
+workspace/
+temp/
+cache/
+
+# CAD and heavy local files
+*.dwg
+*.dxf
+*.skp
+*.rvt
+*.ifc
+*.fbx
+*.obj
+*.blend
+*.ply
+*.las
+*.laz
+*.e57
+
+# Keep examples small and text-based
+!examples/**/*.json
+!examples/**/*.yaml
+!examples/**/*.md
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
