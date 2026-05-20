@@ -1,0 +1,49 @@
+{
+  "job_id": "CAB-001-DEMO",
+  "units": "mm",
+  "cabinet": {
+    "id": "CAB-001",
+    "name": "Sample Base Cabinet",
+    "width_mm": 600,
+    "height_mm": 720,
+    "depth_mm": 580,
+    "material": "18mm plywood"
+  },
+  "tags": {
+    "panels": "CNC_PANEL",
+    "edge_banding": "CNC_EDGE_BANDING_SCRIBE",
+    "grain": "CNC_GRAIN_DIRECTION",
+    "drill_5mm": "CNC_DRILL_5MM",
+    "drill_10mm": "CNC_DRILL_10MM"
+  },
+  "parts": [
+    {
+      "part_id": "P001",
+      "name": "left_side",
+      "type": "panel",
+      "size": { "x": 18, "y": 560, "z": 720 },
+      "origin": { "x": 0, "y": 20, "z": 0 },
+      "grain_direction": "vertical",
+      "edge_banding": ["front", "back"],
+      "drill_ops": [
+        { "id": "D001", "face": "outer", "x": 9, "z": 96, "diameter": 5, "depth": 10 },
+        { "id": "D002", "face": "outer", "x": 9, "z": 624, "diameter": 5, "depth": 10 },
+        { "id": "D003", "face": "inner", "x": 9, "z": 360, "diameter": 5, "depth": 5 }
+      ]
+    },
+    {
+      "part_id": "P002",
+      "name": "right_side",
+      "type": "panel",
+      "size": { "x": 18, "y": 560, "z": 720 },
+      "origin": { "x": 582, "y": 20, "z": 0 },
+      "grain_direction": "vertical",
+      "edge_banding": ["front", "back"],
+      "drill_ops": [
+        { "id": "D004", "face": "outer", "x": 9, "z": 96, "diameter": 5, "depth": 10 },
+        { "id": "D005", "face": "outer", "x": 9, "z": 624, "diameter": 5, "depth": 10 },
+        { "id": "D006", "face": "inner", "x": 9, "z": 360, "diameter": 5, "depth": 5 }
+      ]
+    }
+  ]
+}
