@@ -4,6 +4,26 @@ Local-first CAD automation agent for turning site inputs, sketches, plan images,
 
 This repository is for a standalone local product. It is not tied to PCAgent.
 
+## Featured proof of capability
+
+### SketchUp CNC Cabinet Automation POC
+
+A public proof-of-concept folder has been added for a SketchUp Ruby + CNC cabinet automation workflow:
+
+[`demos/sketchup-cnc-cabinet-poc`](./demos/sketchup-cnc-cabinet-poc)
+
+It demonstrates:
+
+- Deterministic cabinet panel generation in SketchUp Ruby.
+- Cabinet parts created as grouped objects with metadata.
+- Flat 2D drilling circles instead of 3D holes.
+- Drill tags separated by depth, for example `CNC_DRILL_5MM` and `CNC_DRILL_10MM`.
+- Edge-banding scribe marks as dedicated 2D vectors.
+- Grain-direction markers for nesting/rotation control.
+- Sample CSV and JSON structures for future Excel/CSV parser integration.
+
+This is intentionally small and readable so potential clients can inspect the manufacturing logic before a full private production build.
+
 ## Goal
 
 Build a Windows-friendly CAD automation stack that can:
@@ -46,6 +66,7 @@ The system is split into layers instead of one giant agent:
 
 ```text
 local-cad-agent/
+  demos/                    Public proof-of-capability demos
   docs/                     Architecture, roadmap, and CAD automation specs
   prompts/                  Agent and Codex build prompts
   src/local_cad_agent/      Python starter package
