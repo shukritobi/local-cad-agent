@@ -4,25 +4,25 @@ Local-first CAD automation agent for turning site inputs, sketches, plan images,
 
 This repository is for a standalone local product. It is not tied to PCAgent.
 
-## Featured proof of capability
+## Active development areas
 
-### SketchUp CNC Cabinet Automation POC
+### SketchUp Cabinet Automation
 
-A public proof-of-concept folder has been added for a SketchUp Ruby + CNC cabinet automation workflow:
+A focused SketchUp Ruby workflow is being developed for cutlist-driven cabinet modeling and production-ready vector organization:
 
 [`demos/sketchup-cnc-cabinet-poc`](./demos/sketchup-cnc-cabinet-poc)
 
-It demonstrates:
+Current focus:
 
 - Deterministic cabinet panel generation in SketchUp Ruby.
 - Cabinet parts created as grouped objects with metadata.
-- Flat 2D drilling circles instead of 3D holes.
-- Drill tags separated by depth, for example `CNC_DRILL_5MM` and `CNC_DRILL_10MM`.
+- Flat 2D panel operation circles instead of modeled voids.
+- Tags separated by operation depth, for example `CNC_DRILL_5MM` and `CNC_DRILL_10MM`.
 - Edge-banding scribe marks as dedicated 2D vectors.
-- Grain-direction markers for nesting/rotation control.
+- Grain-direction markers for nesting and rotation control.
 - Sample CSV and JSON structures for future Excel/CSV parser integration.
 
-This is intentionally small and readable so potential clients can inspect the manufacturing logic before a full private production build.
+This workflow is part of the broader CAD automation direction: clean source data, controlled geometry, structured tags, and predictable handoff into downstream modeling or production tools.
 
 ## Goal
 
@@ -66,7 +66,7 @@ The system is split into layers instead of one giant agent:
 
 ```text
 local-cad-agent/
-  demos/                    Public proof-of-capability demos
+  demos/                    Focused workflow examples and development references
   docs/                     Architecture, roadmap, and CAD automation specs
   prompts/                  Agent and Codex build prompts
   src/local_cad_agent/      Python starter package
@@ -110,7 +110,7 @@ This is an architecture and scaffold repo. The first working milestone is a geom
 ## Near-term milestones
 
 - Build geometry primitive model for walls, openings, rooms, and annotations.
-- Add DXF import proof of concept.
+- Add DXF import workflow.
 - Add plan-image tracing strategy document.
 - Add wall cleanup engine for slightly angled and messy wall orientations.
 - Add JSON scene schema for 2D to 3D handoff.
