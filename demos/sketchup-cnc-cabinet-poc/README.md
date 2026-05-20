@@ -1,33 +1,33 @@
-# SketchUp CNC Cabinet Automation Proof of Concept
+# SketchUp CNC Cabinet Automation
 
-This folder is a small public proof of capability for a SketchUp Ruby + CNC cabinet automation workflow.
+This folder contains a focused SketchUp Ruby workflow for cutlist-driven cabinet modeling and CNC-ready vector organization.
 
-The goal is to show the important manufacturing logic clearly, not to pretend this is a finished production system.
+The workflow turns structured cabinet data into predictable SketchUp geometry, with clear separation between physical cabinet parts, drilling circles, edge-banding marks, and grain-direction information.
 
-## What this demo proves
+## Current workflow
 
 - Generate cabinet panels from structured data.
 - Keep panels as grouped SketchUp objects with part metadata.
 - Use absolute dimensions and deterministic geometry instead of Dynamic Component formulas.
 - Represent drilling as flat 2D circles on panel faces.
-- Separate drill vectors by depth tag, for example `DRILL_5MM` and `DRILL_10MM`.
+- Separate drilling vectors by depth tag, for example `CNC_DRILL_5MM` and `CNC_DRILL_10MM`.
 - Add edge-banding scribe marks as dedicated 2D vectors.
-- Add grain direction markers for later nesting and rotation control.
+- Add grain direction markers for nesting and rotation control.
 - Keep the architecture ready for an external Excel/CSV parser and hardware rule table.
 
-## Why this matters for Aspire/CNC
+## Aspire/CNC workflow notes
 
-Vectric Aspire and similar CAM workflows depend heavily on clear vector geometry and layer/tag separation. For cabinet manufacturing, the SketchUp model should not only look like a cabinet. It should communicate manufacturing intent clearly:
+Vectric Aspire and similar CAM workflows depend on clear vector geometry and layer/tag separation. For cabinet manufacturing, the SketchUp model should communicate manufacturing intent clearly:
 
-- Which vectors are drilling operations.
-- Which drill vectors have the same depth.
+- Which vectors are drilling locations.
+- Which drilling vectors share the same depth.
 - Which vectors are edge-banding marks.
 - Which parts have grain direction constraints.
 - Which grouped objects represent physical cabinet parts.
 
-This proof of concept keeps those concepts separated so the output can be validated before building a bigger automation system.
+Keeping these items separated makes the generated model easier to inspect, export, and validate before CAM setup.
 
-## Demo files
+## Files
 
 ```text
 demos/sketchup-cnc-cabinet-poc/
@@ -44,11 +44,11 @@ demos/sketchup-cnc-cabinet-poc/
 2. Restart SketchUp.
 3. Open SketchUp.
 4. Go to `Extensions > CNC Cabinet POC > Build Sample Cabinet`.
-5. The demo will create a small cabinet assembly with tags for panels, drill vectors, edge-banding, and grain direction.
+5. SketchUp will create a small cabinet assembly with tags for panels, drilling vectors, edge-banding, and grain direction.
 
 ## Expected SketchUp output
 
-The demo creates:
+The current script creates:
 
 - Panel groups for side panels, top, bottom, back, and shelf.
 - Flat 2D drilling circles on the panel faces.
@@ -57,9 +57,7 @@ The demo creates:
 - Grain direction arrows and labels.
 - Attribute metadata on each panel group.
 
-## MVP direction for a real project
-
-A production MVP would extend this into three layers:
+## Development direction
 
 1. **Desktop parser UI**  
    Reads Excel/CSV, validates cabinet data, maps hardware rules, and exports a clean JSON job file.
@@ -69,7 +67,3 @@ A production MVP would extend this into three layers:
 
 3. **Manufacturing QA/export layer**  
    Checks tags, missing drilling rules, grain markers, panel dimensions, and Aspire import/export assumptions.
-
-## Current status
-
-Public proof of concept. Built to demonstrate understanding of the problem domain and the proposed architecture for a fixed-price MVP.
