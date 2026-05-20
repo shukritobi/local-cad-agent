@@ -1,0 +1,7 @@
+cabinet_id,part_id,part_name,width_mm,height_mm,thickness_mm,x_mm,y_mm,z_mm,material,grain_direction,edge_band_front,edge_band_left,edge_band_right,edge_band_back
+CAB-001,P001,left_side,600,720,18,0,0,0,plywood,vertical,true,false,false,true
+CAB-001,P002,right_side,600,720,18,582,0,0,plywood,vertical,true,false,false,true
+CAB-001,P003,bottom,564,560,18,18,20,0,plywood,horizontal,true,true,true,false
+CAB-001,P004,top,564,560,18,18,20,702,plywood,horizontal,true,true,true,false
+CAB-001,P005,back,600,720,9,0,560,0,plywood,vertical,false,false,false,false
+CAB-001,P006,adjustable_shelf,564,520,18,18,30,360,plywood,horizontal,true,true,true,false
